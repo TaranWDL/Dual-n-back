@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
+    <title>Dual N-back: BIG MODE</title>
+</head>
+<body>
+        <section id="navigation-section">
+            <div id="nav-bar">
+                <a href="#intro-section"><p>DUAL N-BACK CHALLENGE</p></a>
+                <img id="settings" src="icons/gear.svg">
+            </div>
+        </section>
+        <div id="movebox">
+        <section id="intro-section">
+            <div>
+                <h1>Welcome to the Dual N-Back challenge!</h1>
+                <h2>BENEFITS</h2>
+                <p>
+                    The Dual N-Back test is one of the only scientifically proven methods to actually increase your IQ, therefore, improving your performance can actually lead
+                    to noteable increases in your ability to process information in real life, unlike other 'brain training' challenges where the only thing you get better at 
+                    is the challenge itself.
+                </p>
+                <h2>HOW TO PLAY</h2>
+                <p>
+                    In the dual n-back test, you must remember a sequence of visual and auditory cues. Each turn, a square lights up on a grid while a letter is spoken aloud. Your 
+                    task is to recall if the current square position and letter match those from "n" turns earlier (for example, two turns back in a 2-back test). If they match, press 
+                    the button for position or sound. As "n" increases, it becomes more challenging to track the sequence. This test strengthens memory and focus.
+                </p>
+                
+            </div>
+            <div id="start-challenge">
+                <p>SCROLL DOWN TO START THE CHALLENGE</p>
+                <img src="icons/arrow-down-circle.svg">
+                </div>
+        </section>
+        <section id="game-section">
+            <div class="game-container">
+                <div class="nback-container">
+                    <div class="cell" id="tl">
+    
+                    </div>
+                    <div class="cell" id="tc">
+                        
+                    </div>
+                    <div class="cell" id="tr">
+                        
+                    </div>
+                    <div class="cell" id="ml">
+                        
+                    </div>
+                    <div>
+                        <img id="center-focus" src="icons/plus-lg.svg">
+                        <button id="start" class="btn">START</button>
+                    </div>
+                    <div class="cell" id="mr">
+                        
+                    </div>
+                    <div class="cell" id="bl">
+                        
+                    </div>
+                    <div class="cell" id="bc">
+                        
+                    </div>
+                    <div class="cell" id="br">
+                        
+                    </div>
+                </div>
+                <div id="button-rack">
+                    <button id="audio">AUDIO</button>
+                    <button id="position">POSITION</button>
+                </div>
+            </div>
+            
+        </section>
+        <section id="results-section">
+            <div id="results">
+                <h1></h1>
+                <p id="position-results"></p>
+                <p id="audio-results"></p>
+            </div>
+            <footer>
+                © 2024 Taran Sanghera. All rights reserved.
+            </footer>
+        </section>    
+    </div>
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="index.js"></script>
+</html>

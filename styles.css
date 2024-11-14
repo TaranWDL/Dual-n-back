@@ -1,0 +1,241 @@
+.endgame {
+    background-color: black;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
+}
+
+#results {
+    color: aliceblue;
+    height: 50vh;
+}
+
+#intro-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: aliceblue;
+    padding: 0 120px 0 120px;
+    
+}
+
+#game-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(25, 25, 25);
+    gap: 100px;
+}
+
+#results-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color:black;
+}
+
+
+body {
+    font-family: "Geist Mono", monospace;
+    background-repeat:no-repeat;
+    background-color: rgb(34, 34, 34);
+    background-size: cover;
+    background-image: url("images/city.jpg");
+    margin: 0px;
+}
+
+#movebox {
+    display: grid;
+    grid-template-rows: 93vh 93vh 93vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 93vh;
+    box-sizing: border-box;
+    
+  }
+
+
+.geist-mono {
+  font-family: "Geist Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 260;
+  font-style: normal;
+}
+
+.nback-container {
+    height: 40rem;
+    width: 40rem;
+    background-color: black;
+    border-radius:10%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 30px;
+    gap: 30px;
+    box-sizing:border-box;
+}
+
+.nback-container div {
+    border-radius: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.flash {
+    background-color: aliceblue;
+}
+
+#center-focus {
+    height: 5rem;
+    display:none;
+}
+
+button {
+    color: white;
+    background-color: black;
+    border: 0;
+    height: 4rem;
+    width: 8rem;
+    font-size: 20px;
+    font-family: "Geist Mono", monospace;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.btn:active {
+    color: black;
+    background-color: white;
+    border: 0;
+    height: 4rem;
+    width: 8rem;
+    font-size: 20px;
+}
+
+#button-rack {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.disabled {
+    background-color: white;
+    color: black;
+}
+
+.hover {
+    background-color: rgb(34, 34, 34);
+}
+
+#nav-bar {
+    background-color: black;
+    color: aliceblue;
+    width: 100vw;
+    height: 7vh;
+    margin: 0px;
+    align-items: center;
+    justify-content: left;
+    display: grid;
+    grid-template-columns: 29fr 1fr;
+    
+}
+
+#nav-bar p {
+    margin: 0px;
+    font-size: 20px;
+    padding: 0 25px 0 35px;
+}
+
+#settings:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#settings:active {
+    transition: transform .1;
+    transform: rotate(180deg);
+}
+
+#settings {
+    transition: transform .1s;
+}
+
+#navigation-section {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+#start-challenge {
+    width: fit-content;
+    margin-top: 100px;
+    cursor: pointer;
+    transition: transform .4s;
+}
+
+#start-challenge:hover {
+    transition: transform .2s;
+    transform: scale(1.2);
+}
+
+*{scroll-behavior: smooth;}
+
+
+#start {
+    height: 10rem;
+    width: 10rem;
+    padding: 15px;
+    border-radius: 20%;
+    background-color: rgb(17, 17, 17);
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#start:hover {
+    background-color: rgb(34, 34, 34);
+}
+
+#start:active {
+    background-color: white;
+    color: black;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#audio, #position {
+    display: none;
+}
+
+footer {
+    position:relative;
+    top: 20%;
+    color: aliceblue;
+    height: 2rem;
+}
