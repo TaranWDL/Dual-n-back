@@ -1,5 +1,6 @@
 var letters = ["c", "d", "g", "h", "k", "l", "q", "r", "s", "t"];
 var cells = ["tl", "tc", "tr", "ml", "mr", "bl", "bc", "br"];
+var level = 1;
 var gameCells = [];
 var gameLetters = [];
 var cellAmount = 0;
@@ -53,7 +54,7 @@ function randomCell() {
     return (cells[rng]);
 };
 
-function roundStart(level, rounds) {
+function roundStart() {
     initialise()
     
 
@@ -68,22 +69,22 @@ function roundStart(level, rounds) {
         cellAmount--;
     }
 
-    var patternIterate = 1;
-    while (patternIterate != gameLetters.length - 1) {
+    var patternIterate = level;
+    while (patternIterate != gameLetters.length - level) {
         
-        var positionPair = gameCells[patternIterate - 1];
+        var positionPair = gameCells[patternIterate - level];
         var positionCurrent = gameCells[patternIterate];
         while (positionPair == positionCurrent) {
             var rng = randomCell();
             positionPair = rng;
-            gameCells[patternIterate - 1] = positionPair;
+            gameCells[patternIterate - level] = positionPair;
         }
-        var audioPair = gameLetters[patternIterate - 1];
+        var audioPair = gameLetters[patternIterate - level];
         var audioCurrent = gameLetters[patternIterate];
         while (audioPair == audioCurrent) {
             var rng = randomLetter();
             audioPair = rng;
-            gameLetters[patternIterate - 1] = audioPair;
+            gameLetters[patternIterate - level] = audioPair;
         }
 
         patternIterate++;
@@ -92,11 +93,11 @@ function roundStart(level, rounds) {
     audioMatches = 5;
     while (audioMatches != 0) {
         var rng = Math.floor(Math.random() * 20);
-        if (!(correctAudio.includes(rng)) && !(audioPaired.includes(rng)) && !((gameLetters[rng-1]) == (gameLetters[rng+1])) && (rng > 1 - 1)) {
-            var pair = gameLetters[rng-1];
+        if (!(correctAudio.includes(rng)) && !(audioPaired.includes(rng)) && !((gameLetters[rng-level]) == (gameLetters[rng+level])) && (rng > level - 1)) {
+            var pair = gameLetters[rng-level];
             gameLetters[rng] = pair;
             correctAudio.push(rng);
-            audioPaired.push(rng - 1);
+            audioPaired.push(rng - level);
             audioMatches--;
         }
         
@@ -104,11 +105,11 @@ function roundStart(level, rounds) {
     positionMatches = 5;
     while (positionMatches != 0) {
         var rng = Math.floor(Math.random() * 20);
-        if (!(correctPosition.includes(rng)) && !(positionPaired.includes(rng)) && !((gameCells[rng-1]) == (gameCells[rng+1])) && (rng > 1 - 1)) {
-            var pair = gameCells[rng-1];
+        if (!(correctPosition.includes(rng)) && !(positionPaired.includes(rng)) && !((gameCells[rng-level]) == (gameCells[rng+level])) && (rng > level - 1)) {
+            var pair = gameCells[rng-level];
             gameCells[rng] = pair;
             correctPosition.push(rng);
-            positionPaired.push(rng - 1);
+            positionPaired.push(rng - level);
             positionMatches--;
         }
     }
@@ -184,25 +185,48 @@ function endGame() {
     $("#position-results").html("<b>Position: <b>" + totalPosition + "%");
     $("#audio-results").html("<b>Audio: <b>" + totalAudio + "%");
 
+    $("#results-section").css("display", "flex");
+    $("#movebox").css("grid-template-rows", "93vh 93vh 93vh");
+
     scrollToHash("results-section");
 
+    $("#level-rack").css("display", "flex");
     $("#start").css("display", "block");
     $("#center-focus").css("display", "none");
     $("#position").css("display", "none");
     $("#audio").css("display", "none");
+    $("#position").removeClass("disabled");
+    $("#audio").removeClass("disabled");
     
 }
 
 $("#start").on("click", function(event) {
-    roundStart(0, 0);
+    roundStart();
     $("#start").css("display", "none");
     $("#center-focus").css("display", "block");
     $("#position").css("display", "block");
     $("#audio").css("display", "block");
+    $("#level-rack").css("display", "none");
 });
 
 $("#start-challenge").on("click", function(event) {
     scrollToHash("game-section");
+});
+
+$("#decrease-level").on("click", function(event) {
+    if (!(level == 1)) {
+        level--;
+    }
+    $("#level").html("LEVEL " + level);
+    console.log(level);
+});
+
+$("#increase-level").on("click", function(event) {
+    if (!(level == 8)) {
+        level++;
+    }
+    $("#level").html("LEVEL " + level);
+    console.log(level);
 });
 
 $("#position").on("mouseover", function(event) {
@@ -243,3 +267,6 @@ function handleClick() {
 function scrollToHash(hash) {
     location.hash = "#" + hash;
 }
+
+$("#results-section").css("display", "none");
+$("#movebox").css("grid-template-rows", "93vh 93vh");

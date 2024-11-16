@@ -9,7 +9,7 @@
     align-items: center;
     padding: 0;
     margin: 0;
-    gap: 40px;
+    gap: 20px;
 }
 
 #results {
@@ -238,4 +238,44 @@ footer {
     top: 20%;
     color: aliceblue;
     height: 2rem;
+}
+
+h2 {
+    color: aliceblue;
+}
+
+#level-rack {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+}
+
+#level-rack img {
+    height: 35px;
+}
+
+#decrease-level {
+    cursor: pointer;
+    transition: transform .1s;
+}
+
+#increase-level {
+    cursor: pointer;
+    transition: transform .1s;
+}
+
+#level-rack img:hover {
+    transition: transform .1s;
+    transform: scale(1.1);
+}
+
+#level {
+    font-size: 35px;
+}
+
+#level-rack img:active {
+    filter: brightness(0.5) sepia(1) hue-rotate(-70deg) saturate(0.2);
 }
